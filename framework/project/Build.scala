@@ -382,7 +382,9 @@ object PlayBuild extends Build {
   lazy val PlayIntegrationTestProject = PlayCrossBuiltProject("Play-Integration-Test", "play-integration-test")
     .settings(
       parallelExecution in Test := false,
-      previousArtifact := None
+      previousArtifact := None,
+      // The integration test WebSocket client still needs Netty 3.x
+      libraryDependencies += "io.netty" % "netty" % "3.10.3.Final" % Test
     )
     .dependsOn(PlayProject % "test->test", PlayWsProject, PlayWsJavaProject, PlaySpecs2Project)
     .dependsOn(PlayFiltersHelpersProject)
