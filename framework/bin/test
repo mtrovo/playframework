@@ -7,7 +7,7 @@ set -e
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 BASEDIR=$DIR/../..
 FRAMEWORK=$BASEDIR/framework
-BUILD="$FRAMEWORK/build --warn"
+BUILD="$FRAMEWORK/build"
 
 export FILTER_LOGGING=true
 
